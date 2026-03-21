@@ -22,6 +22,7 @@ from ragas.metrics import (
 )
 from datasets import Dataset
 import numpy as np
+import torch
 from tqdm import tqdm
 load_dotenv()
 
@@ -39,31 +40,28 @@ class LangchainRag(BaseRag):
     use_compress:bool
     def __init__(self, name:str, use_compress:bool=False):
         super().__init__(name)
+        self.batch_size = 2
+        self.top_k = 5
+        self.max_context_len = 1200
+        self.max_new_tokens = 256
         # self.llm = ChatOpenAI(model=str(os.getenv("LLM_NAME")), api_key=str(os.getenv("LLM_API_KEY")), base_url=str(os.getenv("LLM_BASE_URL")))
         model_path = str(os.getenv("LLM_PATH"))
         tokenizer = AutoTokenizer.from_pretrained(model_path)
-        model = AutoModelForCausalLM.from_pretrained(model_path).to('cuda')
-        self.evalute_llm = HuggingFacePipeline(pipeline=pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_new_tokens=256, batch_size=8, max_length=None))
+        self.tokenizer = tokenizer
+        model = AutoModelForCausalLM.from_pretrained(model_path, dtype=torch.float16, device_map="cuda")
+        self.model = model
+        model.config.use_cache = False 
+        self.evalute_llm = HuggingFacePipeline(pipeline=pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_new_tokens=256, batch_size=self.batch_size, max_length=None))
         self.llm = self.evalute_llm
         self.embedding = HuggingFaceEmbeddings(
             model_name=str(os.getenv("EMBEDDING_PATH")), 
             model_kwargs={"device": "cuda"}, 
             encode_kwargs={
-                "batch_size": 32,   # 🔥 核心优化
+                "batch_size": self.batch_size,   # 🔥 核心优化
                 "normalize_embeddings": True
             }
         )
-        self.prompt_template = """
-        Given these texts:
-        -----
-        {context}
-        -----
-        Please answer the following question:
-        {query}
-        """
-        self.prompt = PromptTemplate(template=self.prompt_template, input_variables=["context", "query"])
         self.use_compress = use_compress
-        self.batch_size = 16
         # self.retriver = None
 
     def __get_compress(self) -> str:
@@ -73,6 +71,9 @@ class LangchainRag(BaseRag):
         self.datasets = datasets
         self.dataname = dataname
 
+    def count_tokens(self, text: str) -> int:
+        return len(self.tokenizer.encode(text))
+    
     def measure(self, origin, compressed):
         
         if self.use_compress:
@@ -129,83 +130,117 @@ class LangchainRag(BaseRag):
             compressed_docs.append(Document(doc.page_content[:50]))
         
         return compressed_docs
+    
+    def build_prompt(self, context, query):
+        return f"""
+                Given these texts:
+                -----
+                {context}
+                -----
+                Please answer the following question:
+                {query}
+                """
+    def generate_batch(self, prompts):
+
+        inputs = self.tokenizer(
+            prompts,
+            padding=True,
+            truncation=True,
+            max_length=self.max_context_len,
+            return_tensors="pt"
+        ).to("cuda")
+
+        input_ids = inputs["input_ids"]
+
+        with torch.no_grad():
+            outputs = self.model.generate(
+                **inputs,
+                max_new_tokens=self.max_new_tokens,
+                use_cache=False   # 🔥关键
+            )
+
+        responses = self.tokenizer.batch_decode(
+            outputs,
+            skip_special_tokens=True
+        )
+
+        prompt_tokens = [len(ids) for ids in input_ids]
+        total_tokens = [len(out) for out in outputs]
+        completion_tokens = [
+            t - p for t, p in zip(total_tokens, prompt_tokens)
+        ]
+
+        return responses, prompt_tokens, completion_tokens, total_tokens
+
     def run(self):
         """
         对每个qa进行问答测试
         """
-        origin_answer:Ragas={
-                    "question":[],
-                    "answer":[],
-                    "contexts":[],
-                    "ground_truth":[]
-                }
-        origin_tokens = {
-            "total_tokens":[],
-            "prompt_tokens":[],
-            "completion_tokens":[]
-                }
-        compressed_answer:Ragas={
-                    "question":[],
-                    "answer":[],
-                    "contexts":[],
-                    "ground_truth":[]
-                }
-        compressed_tokens = {
-            "total_tokens":[],
-            "prompt_tokens":[],
-            "completion_tokens":[]
+        target: Ragas = {
+            "question": [],
+            "answer": [],
+            "contexts": [],
+            "ground_truth": []
         }
-        chain = create_stuff_documents_chain(self.llm, self.prompt)
 
-        for qa in tqdm(self.datasets, desc="start query"):
-            #创建retriver
-            retriever = InMemoryVectorStore.from_texts(qa["contents"], self.embedding).as_retriever(search_kwargs={"k": 10})
-            query = qa['query']
-            answer = qa["answer"]
-            origin_docs = retriever.invoke(query)
-            #记录原始内容
-            origin_answer['question'].append(query)
-            origin_answer["contexts"].append([doc.page_content for doc in origin_docs])
-            origin_answer['ground_truth'].append(answer)
+        token_stats = {
+            "prompt_tokens": [],
+            "completion_tokens": [],
+            "total_tokens": []
+        }
 
-            #记录压缩内容
-            compressed_docs = self.compress(origin_docs)
-            compressed_answer["question"].append(query)
-            compressed_answer["contexts"].append([doc.page_content for doc in compressed_docs])
-            compressed_answer["ground_truth"].append(answer)
-            
-            if not self.use_compress:
-                # 计算原始token消耗
-                with get_openai_callback() as origin_cb:
-                    chain = create_stuff_documents_chain(self.llm, self.prompt)
-                    response = chain.invoke({"context":origin_docs, "query":query})
-                    origin_answer['answer'].append(response)
-                    origin_tokens["completion_tokens"].append(origin_cb.completion_tokens)
-                    origin_tokens['prompt_tokens'].append(origin_cb.prompt_tokens)
-                    origin_tokens["total_tokens"].append(origin_cb.total_tokens)
-            else:
-                # 计算压缩后token消耗
-                with get_openai_callback() as compressed_cb:
-                    chain = create_stuff_documents_chain(self.llm, self.prompt)
-                    response = chain.invoke({"context":compressed_docs, "query":query})
-                    compressed_answer['answer'].append(response)
-                    compressed_tokens["completion_tokens"].append(compressed_cb.completion_tokens)
-                    compressed_tokens['prompt_tokens'].append(compressed_cb.prompt_tokens)
-                    compressed_tokens["total_tokens"].append(compressed_cb.total_tokens)
-        
-        compressed_result = {
-            "tokens": compressed_tokens,
-            "answer":compressed_answer
+        for i in tqdm(range(0, len(self.datasets), self.batch_size), desc="start query"):
+            batch = self.datasets[i:i+self.batch_size]
+
+            batch_prompts = []
+            batch_docs = []
+            batch_qas = []
+
+            for qa in batch:
+                retriever = InMemoryVectorStore.from_texts(
+                    qa["contents"], self.embedding
+                ).as_retriever(search_kwargs={"k": self.top_k})
+
+                docs = retriever.invoke(qa["query"])
+
+                if self.use_compress:
+                    docs = self.compress(docs)
+
+                # 🔥 控制context长度
+                context_text = "\n".join([d.page_content for d in docs])
+                context_text = context_text[:self.max_context_len]
+
+                prompt = self.build_prompt(context_text, qa["query"])
+
+                batch_prompts.append(prompt)
+
+                batch_docs.append(docs)
+                batch_qas.append(qa)
+
+            responses, ptks, ctks, ttks = self.generate_batch(batch_prompts)
+
+            # 写入
+            for qa, docs, resp, pt, ct, tt in zip(
+                batch_qas, batch_docs, responses, ptks, ctks, ttks
+            ):
+
+                target["question"].append(qa["query"])
+                target["contexts"].append([d.page_content for d in docs])
+                target["ground_truth"].append(qa["answer"])
+                target["answer"].append(resp)
+
+                token_stats["prompt_tokens"].append(int(pt))
+                token_stats["completion_tokens"].append(int(ct))
+                token_stats["total_tokens"].append(int(tt))
+
+            torch.cuda.empty_cache()
+
+        final_output = {
+            "data": target,
+            "tokens": token_stats
         }
-        origin_result = {
-            "tokens": origin_tokens,
-            "answer":origin_answer
-        }
-        #计算结果
-        # result = self.measure(origin_result, compressed_result)
-        result = origin_result if self.use_compress else compressed_result
         filepath = f"/root/works/rag_compress/results/{self.name}/{self.__get_compress()}_{self.dataname}.json"
         with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(result, f, indent=4)
+            json.dump(final_output, f, indent=4)
         print(f"结果已保存至{filepath}")
         return
