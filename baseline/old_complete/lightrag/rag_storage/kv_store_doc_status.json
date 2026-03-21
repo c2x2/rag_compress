@@ -1,0 +1,812 @@
+{
+  "doc-b9971ce08480acfa469557bef168a15e": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-b9971ce08480acfa469557bef168a15e"
+    ],
+    "content_summary": "Fly me to the moon is one of my favourite songs.",
+    "content_length": 48,
+    "created_at": "2026-03-17T08:46:53.142151+00:00",
+    "updated_at": "2026-03-17T08:46:59.180693+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737213,
+      "processing_end_time": 1773737219
+    }
+  },
+  "doc-5c519d4b487fe62350a92e43d9ce0dab": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-5c519d4b487fe62350a92e43d9ce0dab"
+    ],
+    "content_summary": "Larry Bird was an iconic NBA player.",
+    "content_length": 36,
+    "created_at": "2026-03-17T08:46:53.142187+00:00",
+    "updated_at": "2026-03-17T08:46:58.810305+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737213,
+      "processing_end_time": 1773737218
+    }
+  },
+  "doc-32a578207f6d74c1c5525025cedd5c54": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-32a578207f6d74c1c5525025cedd5c54"
+    ],
+    "content_summary": "L. Kornet is one of the best Celtics players.",
+    "content_length": 45,
+    "created_at": "2026-03-17T08:46:53.142183+00:00",
+    "updated_at": "2026-03-17T08:47:05.781024+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737218,
+      "processing_end_time": 1773737225
+    }
+  },
+  "doc-eee509c1df1723390e337c6a6a553a7f": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-eee509c1df1723390e337c6a6a553a7f"
+    ],
+    "content_summary": "Basquetball is a great sport.",
+    "content_length": 29,
+    "created_at": "2026-03-17T08:46:53.142113+00:00",
+    "updated_at": "2026-03-17T08:47:02.684123+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737219,
+      "processing_end_time": 1773737222
+    }
+  },
+  "doc-46f1aebc6be855052df548491b11b2c9": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-46f1aebc6be855052df548491b11b2c9"
+    ],
+    "content_summary": "This is just a random text.",
+    "content_length": 27,
+    "created_at": "2026-03-17T08:46:53.142174+00:00",
+    "updated_at": "2026-03-17T08:47:04.035847+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737222,
+      "processing_end_time": 1773737224
+    }
+  },
+  "doc-4638c81e6f53e3a2a63ededfc0d555fd": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-4638c81e6f53e3a2a63ededfc0d555fd"
+    ],
+    "content_summary": "Elden Ring is one of the best games in the last 15 years.",
+    "content_length": 57,
+    "created_at": "2026-03-17T08:46:53.142178+00:00",
+    "updated_at": "2026-03-17T08:47:07.296949+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737224,
+      "processing_end_time": 1773737227
+    }
+  },
+  "doc-16aff9eee0e4022869db35bf10c59069": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-16aff9eee0e4022869db35bf10c59069"
+    ],
+    "content_summary": "The Celtics are my favourite team.",
+    "content_length": 34,
+    "created_at": "2026-03-17T08:46:53.142156+00:00",
+    "updated_at": "2026-03-17T08:47:08.329039+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737225,
+      "processing_end_time": 1773737228
+    }
+  },
+  "doc-51c3da8183fc6567f29832f7f1f818ab": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-51c3da8183fc6567f29832f7f1f818ab"
+    ],
+    "content_summary": "The Boston Celtics won the game by 20 points",
+    "content_length": 44,
+    "created_at": "2026-03-17T08:46:53.142169+00:00",
+    "updated_at": "2026-03-17T08:47:12.917068+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737227,
+      "processing_end_time": 1773737232
+    }
+  },
+  "doc-d8d16d51ce8e6a6296c11bedd429e55c": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-d8d16d51ce8e6a6296c11bedd429e55c"
+    ],
+    "content_summary": "I simply love going to the movies",
+    "content_length": 33,
+    "created_at": "2026-03-17T08:46:53.142164+00:00",
+    "updated_at": "2026-03-17T08:47:11.073561+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737228,
+      "processing_end_time": 1773737231
+    }
+  },
+  "doc-83490cf4307195fbb6dc1b0d1db14c37": {
+    "status": "processed",
+    "chunks_count": 1,
+    "chunks_list": [
+      "chunk-83490cf4307195fbb6dc1b0d1db14c37"
+    ],
+    "content_summary": "This is a document about the Boston Celtics",
+    "content_length": 43,
+    "created_at": "2026-03-17T08:46:53.142160+00:00",
+    "updated_at": "2026-03-17T08:47:15.503356+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164653_ef6b11e8",
+    "metadata": {
+      "processing_start_time": 1773737231,
+      "processing_end_time": 1773737235
+    }
+  },
+  "dup-1e3a8a36521527234dc70c3214a70ff2": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-b9971ce08480acfa469557bef168a15e",
+    "content_length": 48,
+    "created_at": "2026-03-17T08:48:42.973313+00:00",
+    "updated_at": "2026-03-17T08:48:42.973317+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-b9971ce08480acfa469557bef168a15e, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-b9971ce08480acfa469557bef168a15e",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-7c1b23e14dd58f6a6a4f2669c274eba5": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-16aff9eee0e4022869db35bf10c59069",
+    "content_length": 34,
+    "created_at": "2026-03-17T08:48:42.973479+00:00",
+    "updated_at": "2026-03-17T08:48:42.973482+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-16aff9eee0e4022869db35bf10c59069, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-16aff9eee0e4022869db35bf10c59069",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-00ffd33863f6af72568ee3d6e413741d": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-eee509c1df1723390e337c6a6a553a7f",
+    "content_length": 29,
+    "created_at": "2026-03-17T08:48:42.973609+00:00",
+    "updated_at": "2026-03-17T08:48:42.973612+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-eee509c1df1723390e337c6a6a553a7f, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-eee509c1df1723390e337c6a6a553a7f",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-1efca9757da59bd064420a36eec53794": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-46f1aebc6be855052df548491b11b2c9",
+    "content_length": 27,
+    "created_at": "2026-03-17T08:48:42.973761+00:00",
+    "updated_at": "2026-03-17T08:48:42.973765+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-46f1aebc6be855052df548491b11b2c9, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-46f1aebc6be855052df548491b11b2c9",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-5d957b83d675ab8aba6159551b887e39": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-32a578207f6d74c1c5525025cedd5c54",
+    "content_length": 45,
+    "created_at": "2026-03-17T08:48:42.973886+00:00",
+    "updated_at": "2026-03-17T08:48:42.973889+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-32a578207f6d74c1c5525025cedd5c54, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-32a578207f6d74c1c5525025cedd5c54",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-6e8dee8b7a5cf686cd2e9016eea96e25": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-4638c81e6f53e3a2a63ededfc0d555fd",
+    "content_length": 57,
+    "created_at": "2026-03-17T08:48:42.974167+00:00",
+    "updated_at": "2026-03-17T08:48:42.974174+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-4638c81e6f53e3a2a63ededfc0d555fd, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-4638c81e6f53e3a2a63ededfc0d555fd",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-be14f06c1c53ef7107866d956a97ea01": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-5c519d4b487fe62350a92e43d9ce0dab",
+    "content_length": 36,
+    "created_at": "2026-03-17T08:48:42.974355+00:00",
+    "updated_at": "2026-03-17T08:48:42.974359+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-5c519d4b487fe62350a92e43d9ce0dab, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-5c519d4b487fe62350a92e43d9ce0dab",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-24d1ed954804833286b6de5bd900b0a8": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-51c3da8183fc6567f29832f7f1f818ab",
+    "content_length": 44,
+    "created_at": "2026-03-17T08:48:42.974494+00:00",
+    "updated_at": "2026-03-17T08:48:42.974497+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-51c3da8183fc6567f29832f7f1f818ab, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-51c3da8183fc6567f29832f7f1f818ab",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-ca75fff7e8b22fa08492402576b904a7": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-83490cf4307195fbb6dc1b0d1db14c37",
+    "content_length": 43,
+    "created_at": "2026-03-17T08:48:42.974639+00:00",
+    "updated_at": "2026-03-17T08:48:42.974642+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-83490cf4307195fbb6dc1b0d1db14c37, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-83490cf4307195fbb6dc1b0d1db14c37",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-07b84af253c9464cbbc3a3d8bcee0ce1": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-d8d16d51ce8e6a6296c11bedd429e55c",
+    "content_length": 33,
+    "created_at": "2026-03-17T08:48:42.974766+00:00",
+    "updated_at": "2026-03-17T08:48:42.974768+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164842_00adf825",
+    "error_msg": "Content already exists. Original doc_id: doc-d8d16d51ce8e6a6296c11bedd429e55c, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-d8d16d51ce8e6a6296c11bedd429e55c",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-fd43080068c9f293c2fa10a843582c98": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-32a578207f6d74c1c5525025cedd5c54",
+    "content_length": 45,
+    "created_at": "2026-03-17T08:49:16.333349+00:00",
+    "updated_at": "2026-03-17T08:49:16.333353+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-32a578207f6d74c1c5525025cedd5c54, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-32a578207f6d74c1c5525025cedd5c54",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-0682b0a9c73f1b7d7d7a6ce377f4c531": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-5c519d4b487fe62350a92e43d9ce0dab",
+    "content_length": 36,
+    "created_at": "2026-03-17T08:49:16.333510+00:00",
+    "updated_at": "2026-03-17T08:49:16.333513+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-5c519d4b487fe62350a92e43d9ce0dab, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-5c519d4b487fe62350a92e43d9ce0dab",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-83a1bf21d4758bee0bc9bb942a6736a3": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-83490cf4307195fbb6dc1b0d1db14c37",
+    "content_length": 43,
+    "created_at": "2026-03-17T08:49:16.333666+00:00",
+    "updated_at": "2026-03-17T08:49:16.333670+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-83490cf4307195fbb6dc1b0d1db14c37, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-83490cf4307195fbb6dc1b0d1db14c37",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-a69a82d56f6d6fc493fe8bbc55bb649b": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-4638c81e6f53e3a2a63ededfc0d555fd",
+    "content_length": 57,
+    "created_at": "2026-03-17T08:49:16.333822+00:00",
+    "updated_at": "2026-03-17T08:49:16.333826+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-4638c81e6f53e3a2a63ededfc0d555fd, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-4638c81e6f53e3a2a63ededfc0d555fd",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-9a54e98236c0ffef240f9530411ce1c4": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-b9971ce08480acfa469557bef168a15e",
+    "content_length": 48,
+    "created_at": "2026-03-17T08:49:16.333950+00:00",
+    "updated_at": "2026-03-17T08:49:16.333953+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-b9971ce08480acfa469557bef168a15e, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-b9971ce08480acfa469557bef168a15e",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-a7722e633344535d5f1b2654f713e97e": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-d8d16d51ce8e6a6296c11bedd429e55c",
+    "content_length": 33,
+    "created_at": "2026-03-17T08:49:16.334066+00:00",
+    "updated_at": "2026-03-17T08:49:16.334069+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-d8d16d51ce8e6a6296c11bedd429e55c, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-d8d16d51ce8e6a6296c11bedd429e55c",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-2c4eca1625b987be0be91a8eda7fd7dc": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-51c3da8183fc6567f29832f7f1f818ab",
+    "content_length": 44,
+    "created_at": "2026-03-17T08:49:16.334237+00:00",
+    "updated_at": "2026-03-17T08:49:16.334241+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-51c3da8183fc6567f29832f7f1f818ab, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-51c3da8183fc6567f29832f7f1f818ab",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-7636841fcf633af77e126568b721a617": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-eee509c1df1723390e337c6a6a553a7f",
+    "content_length": 29,
+    "created_at": "2026-03-17T08:49:16.334387+00:00",
+    "updated_at": "2026-03-17T08:49:16.334390+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-eee509c1df1723390e337c6a6a553a7f, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-eee509c1df1723390e337c6a6a553a7f",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-33132b55320722e75e11e37cfa9f8b73": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-16aff9eee0e4022869db35bf10c59069",
+    "content_length": 34,
+    "created_at": "2026-03-17T08:49:16.334531+00:00",
+    "updated_at": "2026-03-17T08:49:16.334535+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-16aff9eee0e4022869db35bf10c59069, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-16aff9eee0e4022869db35bf10c59069",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-91fff8819e6b47bf02c30a0ef645fa10": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-46f1aebc6be855052df548491b11b2c9",
+    "content_length": 27,
+    "created_at": "2026-03-17T08:49:16.334668+00:00",
+    "updated_at": "2026-03-17T08:49:16.334671+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_164916_0ee1ac30",
+    "error_msg": "Content already exists. Original doc_id: doc-46f1aebc6be855052df548491b11b2c9, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-46f1aebc6be855052df548491b11b2c9",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-59fdbd0ac238135b7ed64b4b08c0e6a3": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-16aff9eee0e4022869db35bf10c59069",
+    "content_length": 34,
+    "created_at": "2026-03-17T08:52:32.993947+00:00",
+    "updated_at": "2026-03-17T08:52:32.993951+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-16aff9eee0e4022869db35bf10c59069, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-16aff9eee0e4022869db35bf10c59069",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-f5aeae89e967a9d41cf661358f9d3685": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-51c3da8183fc6567f29832f7f1f818ab",
+    "content_length": 44,
+    "created_at": "2026-03-17T08:52:32.994086+00:00",
+    "updated_at": "2026-03-17T08:52:32.994089+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-51c3da8183fc6567f29832f7f1f818ab, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-51c3da8183fc6567f29832f7f1f818ab",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-3393e22c5ddb8f1a8052e6c9156cb2e6": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-32a578207f6d74c1c5525025cedd5c54",
+    "content_length": 45,
+    "created_at": "2026-03-17T08:52:32.994211+00:00",
+    "updated_at": "2026-03-17T08:52:32.994214+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-32a578207f6d74c1c5525025cedd5c54, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-32a578207f6d74c1c5525025cedd5c54",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-23d2d6a2a6cad653b335a17430bd3877": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-eee509c1df1723390e337c6a6a553a7f",
+    "content_length": 29,
+    "created_at": "2026-03-17T08:52:32.994333+00:00",
+    "updated_at": "2026-03-17T08:52:32.994336+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-eee509c1df1723390e337c6a6a553a7f, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-eee509c1df1723390e337c6a6a553a7f",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-7ceacea5feef85be49c40212574df595": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-d8d16d51ce8e6a6296c11bedd429e55c",
+    "content_length": 33,
+    "created_at": "2026-03-17T08:52:32.994454+00:00",
+    "updated_at": "2026-03-17T08:52:32.994457+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-d8d16d51ce8e6a6296c11bedd429e55c, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-d8d16d51ce8e6a6296c11bedd429e55c",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-8de3e80f65c5a60944ba82576d7d2786": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-b9971ce08480acfa469557bef168a15e",
+    "content_length": 48,
+    "created_at": "2026-03-17T08:52:32.994589+00:00",
+    "updated_at": "2026-03-17T08:52:32.994592+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-b9971ce08480acfa469557bef168a15e, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-b9971ce08480acfa469557bef168a15e",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-87e7ced6c2e81e5c60130202f7a02fea": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-83490cf4307195fbb6dc1b0d1db14c37",
+    "content_length": 43,
+    "created_at": "2026-03-17T08:52:32.994710+00:00",
+    "updated_at": "2026-03-17T08:52:32.994713+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-83490cf4307195fbb6dc1b0d1db14c37, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-83490cf4307195fbb6dc1b0d1db14c37",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-0757dc8306cada2434e09b4968f19d90": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-4638c81e6f53e3a2a63ededfc0d555fd",
+    "content_length": 57,
+    "created_at": "2026-03-17T08:52:32.994828+00:00",
+    "updated_at": "2026-03-17T08:52:32.994831+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-4638c81e6f53e3a2a63ededfc0d555fd, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-4638c81e6f53e3a2a63ededfc0d555fd",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-6a21be5fe83e7afbfcaf091c7deda2dc": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-46f1aebc6be855052df548491b11b2c9",
+    "content_length": 27,
+    "created_at": "2026-03-17T08:52:32.994952+00:00",
+    "updated_at": "2026-03-17T08:52:32.994954+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-46f1aebc6be855052df548491b11b2c9, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-46f1aebc6be855052df548491b11b2c9",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-d8a3cb984b729c2aa7044af5172baeb3": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-5c519d4b487fe62350a92e43d9ce0dab",
+    "content_length": 36,
+    "created_at": "2026-03-17T08:52:32.995080+00:00",
+    "updated_at": "2026-03-17T08:52:32.995083+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165232_685c949b",
+    "error_msg": "Content already exists. Original doc_id: doc-5c519d4b487fe62350a92e43d9ce0dab, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-5c519d4b487fe62350a92e43d9ce0dab",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-42ae151629c2fd32865b18a37871f5e8": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-51c3da8183fc6567f29832f7f1f818ab",
+    "content_length": 44,
+    "created_at": "2026-03-17T08:53:17.062960+00:00",
+    "updated_at": "2026-03-17T08:53:17.062965+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-51c3da8183fc6567f29832f7f1f818ab, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-51c3da8183fc6567f29832f7f1f818ab",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-87189b9ba1c2a41ce982781121613ce9": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-4638c81e6f53e3a2a63ededfc0d555fd",
+    "content_length": 57,
+    "created_at": "2026-03-17T08:53:17.063392+00:00",
+    "updated_at": "2026-03-17T08:53:17.063397+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-4638c81e6f53e3a2a63ededfc0d555fd, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-4638c81e6f53e3a2a63ededfc0d555fd",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-6e59a079c19c730fb93d4f8dd5b0a2da": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-83490cf4307195fbb6dc1b0d1db14c37",
+    "content_length": 43,
+    "created_at": "2026-03-17T08:53:17.063585+00:00",
+    "updated_at": "2026-03-17T08:53:17.063588+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-83490cf4307195fbb6dc1b0d1db14c37, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-83490cf4307195fbb6dc1b0d1db14c37",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-6abc57516726afdefa143cebd1e2ac78": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-b9971ce08480acfa469557bef168a15e",
+    "content_length": 48,
+    "created_at": "2026-03-17T08:53:17.063750+00:00",
+    "updated_at": "2026-03-17T08:53:17.063760+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-b9971ce08480acfa469557bef168a15e, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-b9971ce08480acfa469557bef168a15e",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-fc00f15e570910330aeb8567d4300e70": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-32a578207f6d74c1c5525025cedd5c54",
+    "content_length": 45,
+    "created_at": "2026-03-17T08:53:17.063977+00:00",
+    "updated_at": "2026-03-17T08:53:17.063981+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-32a578207f6d74c1c5525025cedd5c54, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-32a578207f6d74c1c5525025cedd5c54",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-7fc637e1008f5125a07ae06dc44fd45d": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-46f1aebc6be855052df548491b11b2c9",
+    "content_length": 27,
+    "created_at": "2026-03-17T08:53:17.064117+00:00",
+    "updated_at": "2026-03-17T08:53:17.064121+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-46f1aebc6be855052df548491b11b2c9, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-46f1aebc6be855052df548491b11b2c9",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-d854634be117ff8923394cad760ec987": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-5c519d4b487fe62350a92e43d9ce0dab",
+    "content_length": 36,
+    "created_at": "2026-03-17T08:53:17.064598+00:00",
+    "updated_at": "2026-03-17T08:53:17.064603+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-5c519d4b487fe62350a92e43d9ce0dab, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-5c519d4b487fe62350a92e43d9ce0dab",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-9e56f12b97a74d754f77c827bc19acdb": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-d8d16d51ce8e6a6296c11bedd429e55c",
+    "content_length": 33,
+    "created_at": "2026-03-17T08:53:17.064841+00:00",
+    "updated_at": "2026-03-17T08:53:17.064845+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-d8d16d51ce8e6a6296c11bedd429e55c, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-d8d16d51ce8e6a6296c11bedd429e55c",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-0040bbb902a37dbd6222d5068de4bd5b": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-eee509c1df1723390e337c6a6a553a7f",
+    "content_length": 29,
+    "created_at": "2026-03-17T08:53:17.064997+00:00",
+    "updated_at": "2026-03-17T08:53:17.065001+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-eee509c1df1723390e337c6a6a553a7f, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-eee509c1df1723390e337c6a6a553a7f",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  },
+  "dup-7e834e0d4904b531cd226ec48ec23546": {
+    "status": "failed",
+    "content_summary": "[DUPLICATE] Original document: doc-16aff9eee0e4022869db35bf10c59069",
+    "content_length": 34,
+    "created_at": "2026-03-17T08:53:17.065115+00:00",
+    "updated_at": "2026-03-17T08:53:17.065119+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20260317_165317_698ef999",
+    "error_msg": "Content already exists. Original doc_id: doc-16aff9eee0e4022869db35bf10c59069, Status: processed",
+    "metadata": {
+      "is_duplicate": true,
+      "original_doc_id": "doc-16aff9eee0e4022869db35bf10c59069",
+      "original_track_id": "insert_20260317_164653_ef6b11e8"
+    },
+    "chunks_list": []
+  }
+}

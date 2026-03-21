@@ -1,0 +1,90 @@
+{
+  "doc-5c519d4b487fe62350a92e43d9ce0dab": {
+    "entity_names": [
+      "Larry Bird",
+      "NBA"
+    ],
+    "count": 2,
+    "create_time": 1773737218,
+    "update_time": 1773737218,
+    "_id": "doc-5c519d4b487fe62350a92e43d9ce0dab"
+  },
+  "doc-b9971ce08480acfa469557bef168a15e": {
+    "entity_names": [
+      "Person",
+      "Fly Me to the Moon"
+    ],
+    "count": 2,
+    "create_time": 1773737219,
+    "update_time": 1773737219,
+    "_id": "doc-b9971ce08480acfa469557bef168a15e"
+  },
+  "doc-eee509c1df1723390e337c6a6a553a7f": {
+    "entity_names": [
+      "Basketball"
+    ],
+    "count": 1,
+    "create_time": 1773737222,
+    "update_time": 1773737222,
+    "_id": "doc-eee509c1df1723390e337c6a6a553a7f"
+  },
+  "doc-32a578207f6d74c1c5525025cedd5c54": {
+    "entity_names": [
+      "Celtics",
+      "Boston Celtics",
+      "L. Kornet"
+    ],
+    "count": 3,
+    "create_time": 1773737225,
+    "update_time": 1773737225,
+    "_id": "doc-32a578207f6d74c1c5525025cedd5c54"
+  },
+  "doc-4638c81e6f53e3a2a63ededfc0d555fd": {
+    "entity_names": [
+      "Elden Ring"
+    ],
+    "count": 1,
+    "create_time": 1773737227,
+    "update_time": 1773737227,
+    "_id": "doc-4638c81e6f53e3a2a63ededfc0d555fd"
+  },
+  "doc-16aff9eee0e4022869db35bf10c59069": {
+    "entity_names": [
+      "Celtics"
+    ],
+    "count": 1,
+    "create_time": 1773737228,
+    "update_time": 1773737228,
+    "_id": "doc-16aff9eee0e4022869db35bf10c59069"
+  },
+  "doc-d8d16d51ce8e6a6296c11bedd429e55c": {
+    "entity_names": [
+      "Movies"
+    ],
+    "count": 1,
+    "create_time": 1773737231,
+    "update_time": 1773737231,
+    "_id": "doc-d8d16d51ce8e6a6296c11bedd429e55c"
+  },
+  "doc-51c3da8183fc6567f29832f7f1f818ab": {
+    "entity_names": [
+      "20 Points",
+      "Game",
+      "Boston Celtics"
+    ],
+    "count": 3,
+    "create_time": 1773737232,
+    "update_time": 1773737232,
+    "_id": "doc-51c3da8183fc6567f29832f7f1f818ab"
+  },
+  "doc-83490cf4307195fbb6dc1b0d1db14c37": {
+    "entity_names": [
+      "Boston",
+      "Boston Celtics"
+    ],
+    "count": 2,
+    "create_time": 1773737235,
+    "update_time": 1773737235,
+    "_id": "doc-83490cf4307195fbb6dc1b0d1db14c37"
+  }
+}

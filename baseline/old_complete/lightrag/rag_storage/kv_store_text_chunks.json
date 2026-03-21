@@ -1,0 +1,142 @@
+{
+  "chunk-b9971ce08480acfa469557bef168a15e": {
+    "tokens": 12,
+    "content": "Fly me to the moon is one of my favourite songs.",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-b9971ce08480acfa469557bef168a15e",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:797db00aeb588e92bc79fe0922cd99c2",
+      "default:extract:eab0195ef2b726084f33ce7f454ac43b"
+    ],
+    "create_time": 1773737213,
+    "update_time": 1773737218,
+    "_id": "chunk-b9971ce08480acfa469557bef168a15e"
+  },
+  "chunk-5c519d4b487fe62350a92e43d9ce0dab": {
+    "tokens": 8,
+    "content": "Larry Bird was an iconic NBA player.",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-5c519d4b487fe62350a92e43d9ce0dab",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:102292adad035c5d877dc1718d8e49c6",
+      "default:extract:cebe36ee3988a075a5a4277d1bab8d24"
+    ],
+    "create_time": 1773737213,
+    "update_time": 1773737218,
+    "_id": "chunk-5c519d4b487fe62350a92e43d9ce0dab"
+  },
+  "chunk-32a578207f6d74c1c5525025cedd5c54": {
+    "tokens": 12,
+    "content": "L. Kornet is one of the best Celtics players.",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-32a578207f6d74c1c5525025cedd5c54",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:5c898bfb863dd77064a037266330a4d4",
+      "default:extract:2aa52e3c4cdf8f4a25325b5667430f67"
+    ],
+    "create_time": 1773737218,
+    "update_time": 1773737225,
+    "_id": "chunk-32a578207f6d74c1c5525025cedd5c54"
+  },
+  "chunk-eee509c1df1723390e337c6a6a553a7f": {
+    "tokens": 8,
+    "content": "Basquetball is a great sport.",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-eee509c1df1723390e337c6a6a553a7f",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:f6e19e2d0f5153acf364791dcab21b95",
+      "default:extract:70e18c554917d3d9a4696d83005b3424"
+    ],
+    "create_time": 1773737219,
+    "update_time": 1773737222,
+    "_id": "chunk-eee509c1df1723390e337c6a6a553a7f"
+  },
+  "chunk-46f1aebc6be855052df548491b11b2c9": {
+    "tokens": 7,
+    "content": "This is just a random text.",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-46f1aebc6be855052df548491b11b2c9",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:dcf0037a3a2f1d2950e10cbec579e2c3",
+      "default:extract:9615b8a3ac4c2319009211c3c1f141f4"
+    ],
+    "create_time": 1773737222,
+    "update_time": 1773737224,
+    "_id": "chunk-46f1aebc6be855052df548491b11b2c9"
+  },
+  "chunk-4638c81e6f53e3a2a63ededfc0d555fd": {
+    "tokens": 16,
+    "content": "Elden Ring is one of the best games in the last 15 years.",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-4638c81e6f53e3a2a63ededfc0d555fd",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:b6726e6697e1c733846dee18f22b521f",
+      "default:extract:655d3c4560ee2f4c9e4b1deda5a9ad97"
+    ],
+    "create_time": 1773737224,
+    "update_time": 1773737227,
+    "_id": "chunk-4638c81e6f53e3a2a63ededfc0d555fd"
+  },
+  "chunk-16aff9eee0e4022869db35bf10c59069": {
+    "tokens": 7,
+    "content": "The Celtics are my favourite team.",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-16aff9eee0e4022869db35bf10c59069",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:b7d71dddfd30746e699809c68d170a55",
+      "default:extract:88c769794852a6f4ce8698e816c7e966"
+    ],
+    "create_time": 1773737225,
+    "update_time": 1773737228,
+    "_id": "chunk-16aff9eee0e4022869db35bf10c59069"
+  },
+  "chunk-51c3da8183fc6567f29832f7f1f818ab": {
+    "tokens": 10,
+    "content": "The Boston Celtics won the game by 20 points",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-51c3da8183fc6567f29832f7f1f818ab",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:660b725182fe57b5f7992697a0e40b22",
+      "default:extract:913af9d04a06200306d0e542c20a8e3c"
+    ],
+    "create_time": 1773737227,
+    "update_time": 1773737232,
+    "_id": "chunk-51c3da8183fc6567f29832f7f1f818ab"
+  },
+  "chunk-d8d16d51ce8e6a6296c11bedd429e55c": {
+    "tokens": 7,
+    "content": "I simply love going to the movies",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-d8d16d51ce8e6a6296c11bedd429e55c",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:e006d2506d5303cda550ef60b997ce00",
+      "default:extract:0f4ab8602db357609e16f256e69e5fca"
+    ],
+    "create_time": 1773737228,
+    "update_time": 1773737230,
+    "_id": "chunk-d8d16d51ce8e6a6296c11bedd429e55c"
+  },
+  "chunk-83490cf4307195fbb6dc1b0d1db14c37": {
+    "tokens": 8,
+    "content": "This is a document about the Boston Celtics",
+    "chunk_order_index": 0,
+    "full_doc_id": "doc-83490cf4307195fbb6dc1b0d1db14c37",
+    "file_path": "unknown_source",
+    "llm_cache_list": [
+      "default:extract:4d071e4ca24d7eced1299684ec74d1bc",
+      "default:extract:1f85657def0dc0a9a39bfe50f793f3db"
+    ],
+    "create_time": 1773737231,
+    "update_time": 1773737235,
+    "_id": "chunk-83490cf4307195fbb6dc1b0d1db14c37"
+  }
+}

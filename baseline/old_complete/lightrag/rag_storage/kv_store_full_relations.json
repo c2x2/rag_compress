@@ -1,0 +1,70 @@
+{
+  "doc-5c519d4b487fe62350a92e43d9ce0dab": {
+    "relation_pairs": [
+      [
+        "Larry Bird",
+        "NBA"
+      ]
+    ],
+    "count": 1,
+    "create_time": 1773737218,
+    "update_time": 1773737218,
+    "_id": "doc-5c519d4b487fe62350a92e43d9ce0dab"
+  },
+  "doc-b9971ce08480acfa469557bef168a15e": {
+    "relation_pairs": [
+      [
+        "Fly Me to the Moon",
+        "Person"
+      ]
+    ],
+    "count": 1,
+    "create_time": 1773737219,
+    "update_time": 1773737219,
+    "_id": "doc-b9971ce08480acfa469557bef168a15e"
+  },
+  "doc-32a578207f6d74c1c5525025cedd5c54": {
+    "relation_pairs": [
+      [
+        "Boston Celtics",
+        "L. Kornet"
+      ],
+      [
+        "Celtics",
+        "L. Kornet"
+      ]
+    ],
+    "count": 2,
+    "create_time": 1773737225,
+    "update_time": 1773737225,
+    "_id": "doc-32a578207f6d74c1c5525025cedd5c54"
+  },
+  "doc-51c3da8183fc6567f29832f7f1f818ab": {
+    "relation_pairs": [
+      [
+        "Boston Celtics",
+        "Game"
+      ],
+      [
+        "20 Points",
+        "Boston Celtics"
+      ]
+    ],
+    "count": 2,
+    "create_time": 1773737232,
+    "update_time": 1773737232,
+    "_id": "doc-51c3da8183fc6567f29832f7f1f818ab"
+  },
+  "doc-83490cf4307195fbb6dc1b0d1db14c37": {
+    "relation_pairs": [
+      [
+        "Boston",
+        "Boston Celtics"
+      ]
+    ],
+    "count": 1,
+    "create_time": 1773737235,
+    "update_time": 1773737235,
+    "_id": "doc-83490cf4307195fbb6dc1b0d1db14c37"
+  }
+}

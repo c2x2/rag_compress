@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d13" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="d12" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="d11" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="d10" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d9" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d8" for="edge" attr.name="description" attr.type="string" />
+  <key id="d7" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d6" for="node" attr.name="truncate" attr.type="string" />
+  <key id="d5" for="node" attr.name="created_at" attr.type="long" />
+  <key id="d4" for="node" attr.name="file_path" attr.type="string" />
+  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="Larry Bird">
+      <data key="d0">Larry Bird</data>
+      <data key="d1">person</data>
+      <data key="d2">Larry Bird was an iconic NBA player known for his exceptional skills and contributions to basketball.</data>
+      <data key="d3">chunk-5c519d4b487fe62350a92e43d9ce0dab</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737218</data>
+      <data key="d6" />
+    </node>
+    <node id="NBA">
+      <data key="d0">NBA</data>
+      <data key="d1">organization</data>
+      <data key="d2">The NBA is the National Basketball Association, a professional basketball league in North America where Larry Bird played.</data>
+      <data key="d3">chunk-5c519d4b487fe62350a92e43d9ce0dab</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737218</data>
+      <data key="d6" />
+    </node>
+    <node id="Fly Me to the Moon">
+      <data key="d0">Fly Me to the Moon</data>
+      <data key="d1">content</data>
+      <data key="d2">Fly Me to the Moon is a well-known song originally composed by Bart Howard, frequently performed and recorded by numerous artists including Frank Sinatra.</data>
+      <data key="d3">chunk-b9971ce08480acfa469557bef168a15e</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737218</data>
+      <data key="d6" />
+    </node>
+    <node id="Person">
+      <data key="d0">Person</data>
+      <data key="d3">chunk-b9971ce08480acfa469557bef168a15e</data>
+      <data key="d2">The song Fly Me to the Moon is explicitly stated as one of the speaker's favourite songs, indicating a personal emotional or aesthetic connection.</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737218</data>
+      <data key="d6" />
+    </node>
+    <node id="Basketball">
+      <data key="d0">Basketball</data>
+      <data key="d1">concept</data>
+      <data key="d2">Basketball is a team sport played between two teams of five players each, involving scoring points by shooting a ball through a hoop.</data>
+      <data key="d3">chunk-eee509c1df1723390e337c6a6a553a7f</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737222</data>
+      <data key="d6" />
+    </node>
+    <node id="L. Kornet">
+      <data key="d0">L. Kornet</data>
+      <data key="d1">person</data>
+      <data key="d2">L. Kornet is a professional basketball player recognized as one of the best players for the Celtics.</data>
+      <data key="d3">chunk-32a578207f6d74c1c5525025cedd5c54</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737225</data>
+      <data key="d6" />
+    </node>
+    <node id="Celtics">
+      <data key="d0">Celtics</data>
+      <data key="d1">organization</data>
+      <data key="d2">The Celtics is a professional basketball team in the NBA, for which L. Kornet plays.&lt;SEP&gt;The Celtics is a professional basketball team and the user's favorite team.</data>
+      <data key="d3">chunk-32a578207f6d74c1c5525025cedd5c54&lt;SEP&gt;chunk-16aff9eee0e4022869db35bf10c59069</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737228</data>
+      <data key="d6" />
+    </node>
+    <node id="Boston Celtics">
+      <data key="d0">Boston Celtics</data>
+      <data key="d1">organization</data>
+      <data key="d2">The Boston Celtics is a professional basketball team in the NBA, commonly referred to as the Celtics.&lt;SEP&gt;The Boston Celtics is a professional basketball team that won the game by 20 points.&lt;SEP&gt;The Boston Celtics is a professional basketball team based in Boston, Massachusetts.</data>
+      <data key="d3">chunk-32a578207f6d74c1c5525025cedd5c54&lt;SEP&gt;chunk-51c3da8183fc6567f29832f7f1f818ab&lt;SEP&gt;chunk-83490cf4307195fbb6dc1b0d1db14c37</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737235</data>
+      <data key="d6" />
+    </node>
+    <node id="Elden Ring">
+      <data key="d0">Elden Ring</data>
+      <data key="d1">content</data>
+      <data key="d2">Elden Ring is a critically acclaimed video game recognized as one of the best games in the last 15 years.</data>
+      <data key="d3">chunk-4638c81e6f53e3a2a63ededfc0d555fd</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737227</data>
+      <data key="d6" />
+    </node>
+    <node id="Movies">
+      <data key="d0">Movies</data>
+      <data key="d1">content</data>
+      <data key="d2">Movies are audiovisual works intended for entertainment, typically shown in theaters or on digital platforms.</data>
+      <data key="d3">chunk-d8d16d51ce8e6a6296c11bedd429e55c</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737230</data>
+      <data key="d6" />
+    </node>
+    <node id="Game">
+      <data key="d0">Game</data>
+      <data key="d1">event</data>
+      <data key="d2">The Game is a basketball match in which the Boston Celtics achieved a 20-point victory.</data>
+      <data key="d3">chunk-51c3da8183fc6567f29832f7f1f818ab</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737232</data>
+      <data key="d6" />
+    </node>
+    <node id="20 Points">
+      <data key="d0">20 Points</data>
+      <data key="d1">concept</data>
+      <data key="d2">20 Points is the margin of victory by which the Boston Celtics won the game.</data>
+      <data key="d3">chunk-51c3da8183fc6567f29832f7f1f818ab</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737232</data>
+      <data key="d6" />
+    </node>
+    <node id="Boston">
+      <data key="d0">Boston</data>
+      <data key="d1">location</data>
+      <data key="d2">Boston is a major city in the U.S. state of Massachusetts and the home city of the Boston Celtics.</data>
+      <data key="d3">chunk-83490cf4307195fbb6dc1b0d1db14c37</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1773737235</data>
+      <data key="d6" />
+    </node>
+    <edge source="Larry Bird" target="NBA">
+      <data key="d7">1.0</data>
+      <data key="d8">Larry Bird was a professional player in the NBA, representing one of its most iconic figures.</data>
+      <data key="d9">athletic career,professional affiliation</data>
+      <data key="d10">chunk-5c519d4b487fe62350a92e43d9ce0dab</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1773737218</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Fly Me to the Moon" target="Person">
+      <data key="d7">1.0</data>
+      <data key="d8">The song Fly Me to the Moon is explicitly stated as one of the speaker's favourite songs, indicating a personal emotional or aesthetic connection.</data>
+      <data key="d9">favourite song,personal preference</data>
+      <data key="d10">chunk-b9971ce08480acfa469557bef168a15e</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1773737219</data>
+      <data key="d13" />
+    </edge>
+    <edge source="L. Kornet" target="Celtics">
+      <data key="d7">1.0</data>
+      <data key="d8">L. Kornet is a player on the Celtics basketball team.</data>
+      <data key="d9">professional sports,team membership</data>
+      <data key="d10">chunk-32a578207f6d74c1c5525025cedd5c54</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1773737225</data>
+      <data key="d13" />
+    </edge>
+    <edge source="L. Kornet" target="Boston Celtics">
+      <data key="d7">1.0</data>
+      <data key="d8">L. Kornet is a player on the Boston Celtics basketball team.</data>
+      <data key="d9">professional sports,team membership</data>
+      <data key="d10">chunk-32a578207f6d74c1c5525025cedd5c54</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1773737225</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Boston Celtics" target="Game">
+      <data key="d7">1.0</data>
+      <data key="d8">The Boston Celtics participated in and won the Game by 20 points.</data>
+      <data key="d9">team participation,victory</data>
+      <data key="d10">chunk-51c3da8183fc6567f29832f7f1f818ab</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1773737232</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Boston Celtics" target="20 Points">
+      <data key="d7">1.0</data>
+      <data key="d8">The Boston Celtics won the game by a margin of 20 points.</data>
+      <data key="d9">score difference,victory margin</data>
+      <data key="d10">chunk-51c3da8183fc6567f29832f7f1f818ab</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1773737232</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Boston Celtics" target="Boston">
+      <data key="d7">1.0</data>
+      <data key="d8">The Boston Celtics are based in and represent the city of Boston.</data>
+      <data key="d9">geographic association,team location</data>
+      <data key="d10">chunk-83490cf4307195fbb6dc1b0d1db14c37</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1773737235</data>
+      <data key="d13" />
+    </edge>
+  </graph>
+</graphml>
