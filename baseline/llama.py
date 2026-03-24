@@ -10,10 +10,10 @@ from llama_index.core.postprocessor.types import BaseNodePostprocessor
 from llama_index.core.schema import QueryBundle
 from llama_index.embeddings.huggingface import HuggingFaceEmbedding
 from langchain_huggingface import HuggingFaceEmbeddings, HuggingFacePipeline
-from llama_index.llms.dashscope import DashScope
-from llama_index.core.callbacks import CallbackManager, TokenCountingHandler
+from llama_index.core.callbacks import CallbackManager
 from ragas import evaluate
 from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
+import torch
 
 from ragas.metrics import (
     faithfulness,
@@ -42,45 +42,35 @@ class Compress(BaseNodePostprocessor):
         return nodes
 
 class LlamaRag(BaseRag):
-    llm:DashScope
+    llm:AutoModelForCausalLM
     embedding:HuggingFaceEmbedding
-    tokenizer:AutoTokenizer
     use_compress:bool
     def __init__(self, name: str, use_compress:bool = False):
         super().__init__(name)
-        self.llm = DashScope(
-            model=str(os.getenv("LLM_NAME")),  # qwen-plus
-            api_key=os.getenv("LLM_API_KEY"),
-            base_url=os.getenv("LLM_BASE_URL"),
-            temperature=0
-        )
-
-        self.embedding = HuggingFaceEmbedding(
-            model_name=str(os.getenv("EMBEDDING_PATH")),
-            device="cuda"
-        )
-
-        self.tokenizer = AutoTokenizer.from_pretrained(
-            str(os.getenv("TOKENIZER_PATH")),
-            trust_remote_code=True
-        )
-
-        self.token_counter = TokenCountingHandler(
-            tokenizer=lambda x: self.tokenizer.encode(x)
-        )
-
-        self.callback_manager = CallbackManager([self.token_counter])
-        self.use_compress = use_compress
+        self.batch_size = 4
+        self.top_k = 5
+        self.max_context_len = 1200
+        self.max_new_tokens = 256
+        #定义模型
         model_path = str(os.getenv("LLM_PATH"))
-        tokenizer = AutoTokenizer.from_pretrained(model_path)
-        model = AutoModelForCausalLM.from_pretrained(model_path).to('cuda')
-        self.evalute_llm = HuggingFacePipeline(pipeline=pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_new_tokens=256, max_length=None))
-        self.evalute_embedding = HuggingFaceEmbeddings(model_name=str(os.getenv("EMBEDDING_PATH")), model_kwargs={"device": "cuda"})
+        tokenizer = AutoTokenizer.from_pretrained(model_path, padding_side='left')
+        self.tokenizer = tokenizer
+        model = AutoModelForCausalLM.from_pretrained(model_path, dtype=torch.float16, device_map="cuda")
+        self.model = model
+        model.config.use_cache = False
+        #评测用模型
+        self.evalute_llm = HuggingFacePipeline(pipeline=pipeline(task="text-generation", model=model, tokenizer=tokenizer, max_new_tokens=256, batch_size=self.batch_size, max_length=None))
+        self.embedding = HuggingFaceEmbedding(
+            model_name=str(os.getenv("EMBEDDING_PATH")), 
+            device="cuda",
+            embed_batch_size=self.batch_size,
+            normalize=True
+        )
+        self.use_compress = use_compress  
+        self.mycompress = Compress()
 
         #设置模型
-        Settings.llm = self.llm
         Settings.embed_model = self.embedding
-        Settings.callback_manager = self.callback_manager
 
     def __get_compress(self) -> str:
         return "use_compress" if self.use_compress else "no_compress"
@@ -102,7 +92,7 @@ class LlamaRag(BaseRag):
                     context_recall
                 ],
                 llm=self.evalute_llm,
-                embeddings=self.evalute_embedding
+                embeddings=self.embedding
             )
             result = compressed_results.to_pandas().to_dict()
         else:
@@ -117,7 +107,7 @@ class LlamaRag(BaseRag):
                     context_recall
                 ],
                 llm=self.evalute_llm,
-                embeddings=self.evalute_embedding
+                embeddings=self.embedding
             )
             result = origin_results.to_pandas().to_dict()
 
@@ -126,93 +116,146 @@ class LlamaRag(BaseRag):
     def compress(self, docs):
          return super().compress(docs)
     
+    def build_prompt(self, context, query):
+        return f"""
+                Given these texts:
+                -----
+                {context}
+                -----
+                Please answer the following question:
+                {query}
+                """
+
+    def generate_batch(self, prompts):
+        formatted_prompts = []
+        for prompt in prompts:
+            messages = [{"role": "user", "content": prompt}]
+            text = self.tokenizer.apply_chat_template(
+                messages, tokenize=False, add_generation_prompt=True
+            )
+            formatted_prompts.append(text)
+
+        inputs = self.tokenizer(
+            formatted_prompts,
+            padding=True,
+            truncation=True,
+            max_length=self.max_context_len,
+            return_tensors="pt"
+        ).to("cuda")
+
+        # 记录输入张量的宽度（这是所有 prompt 补齐后的统一长度）
+        input_tensor_len = inputs["input_ids"].shape[1]
+
+        with torch.no_grad():
+            outputs = self.model.generate(
+                **inputs,
+                max_new_tokens=self.max_new_tokens,
+                do_sample=True,
+                temperature=0.7,
+                top_p=0.9,
+                eos_token_id=self.tokenizer.eos_token_id,
+                pad_token_id=self.tokenizer.pad_token_id,
+                use_cache=True
+            )
+
+        responses = []
+        prompt_tokens_counts = []
+        completion_tokens_counts = []
+        total_tokens_counts = []
+
+        for i in range(len(outputs)):
+            # 1. 获取该行真正的 prompt 长度（不含 padding）
+            actual_prompt_len = inputs["attention_mask"][i].sum().item()
+            
+            # 2. 正确切片：从 input_tensor_len 之后开始才是真正的生成内容
+            # 无论前面有多少 PAD，生成的回答始终跟在整个输入张量后面
+            generated_tokens = outputs[i][input_tensor_len:]
+            
+            # 3. 过滤掉生成结果末尾可能的填充 token (如果有的话)
+            # 寻找第一个 EOS token 之后的位置并截断，或者直接用 skip_special_tokens
+            text = self.tokenizer.decode(generated_tokens, skip_special_tokens=True)
+            
+            # 4. 计算真实的 Token 数量
+            # 生成的有效 token 数需要排除掉生成阶段产生的 [PAD]
+            # 我们通过解码后再编码，或者直接统计非 pad 的 token
+            actual_gen_tokens = (generated_tokens != self.tokenizer.pad_token_id).sum().item()
+
+            responses.append(text)
+            prompt_tokens_counts.append(actual_prompt_len)
+            completion_tokens_counts.append(actual_gen_tokens)
+            total_tokens_counts.append(actual_prompt_len + actual_gen_tokens)
+
+        return responses, prompt_tokens_counts, completion_tokens_counts, total_tokens_counts
+    
     def run(self):
         """
         进行测试
         """
-        origin_answer:Ragas={
-            "question":[],
-            "answer":[],
-            "contexts":[],
-            "ground_truth":[]
-        }
-        origin_tokens = {
-            "total_tokens":[],
-            "prompt_tokens":[],
-            "completion_tokens":[]
-        }
-        compressed_answer:Ragas={
-            "question":[],
-            "answer":[],
-            "contexts":[],
-            "ground_truth":[]
-        }
-        compressed_tokens = {
-            "total_tokens":[],
-            "prompt_tokens":[],
-            "completion_tokens":[]
+        target: Ragas = {
+            "question": [],
+            "answer": [],
+            "contexts": [],
+            "ground_truth": []
         }
 
-        for qa in tqdm(self.datasets[:1], desc="start query"):
-            documents = [Document(text=content) for content in qa["contents"]]
-            print(documents)
-            #construct index vector
-            index = VectorStoreIndex.from_documents(documents)
-            answer = qa["answer"]
-            query = qa["query"]
+        token_stats = {
+            "prompt_tokens": [],
+            "completion_tokens": [],
+            "total_tokens": []
+        }
 
-            if not self.use_compress:
-                #caculate origin
-                self.token_counter.reset_counts()
-                origin_engine = index.as_query_engine(similarity_top_k=10)
-                response = origin_engine.query(query)
-                origin_answer["answer"].append(response.__str__())
-                origin_answer["question"].append(query)
-                origin_answer["ground_truth"].append(answer)
+        for i in tqdm(range(0, len(self.datasets), self.batch_size), desc="start query"):
+            batch = self.datasets[i:i+self.batch_size]
 
-                contexts = []
-                for node in response.source_nodes:
-                    contexts.append(node.node.text)
+            batch_prompts = []
+            batch_docs = []
+            batch_qas = []
 
-                origin_answer["contexts"].append(contexts)
+            for qa in batch:
+                documents = [Document(text=content) for content in qa["contents"]]
+                #construct index vector
+                index = VectorStoreIndex.from_documents(documents)
+                if self.use_compress:
+                    engine = index.as_retriever(similarity_top_k = self.top_k, node_postprocessors=[self.mycompress])
+                else:
+                    engine = index.as_retriever(similarity=self.top_k)
+                
+                docs = [data.text for data in engine.retrieve(QueryBundle(qa["query"]))]
 
-                origin_tokens["total_tokens"].append(self.token_counter.total_llm_token_count)
-                origin_tokens["prompt_tokens"].append(self.token_counter.prompt_llm_token_count)
-                origin_tokens["completion_tokens"].append(self.token_counter.completion_llm_token_count)
-            
-            else:
-                #caculate origin
-                self.token_counter.reset_counts()
-                compress_engin = index.as_query_engine(similarity_top_k=10, node_postprocessor=[Compress])
-                response = compress_engin.aquery(query)
-                compressed_answer["answer"].append(response.__str__())
-                compressed_answer["question"].append(query)
-                compressed_answer["ground_truth"].append(answer)
+                context_text = '\n'.join([d for d in docs])
+                context_text = context_text[:self.max_context_len]
 
-                contexts = []
-                for node in response.source_nodes:
-                    contexts.append(node.node.text)
+                prompt = self.build_prompt(context_text, qa["query"])
 
-                compressed_answer["contexts"].append(contexts)
+                batch_prompts.append(prompt)
+                batch_docs.append(docs)
+                batch_qas.append(qa)
 
-                compressed_tokens["total_tokens"].append(self.token_counter.total_llm_token_count)
-                compressed_tokens["prompt_tokens"].append(self.token_counter.prompt_llm_token_count)
-                compressed_tokens["completion_tokens"].append(self.token_counter.completion_llm_token_count)
+            responses, ptks, ctks, ttks = self.generate_batch(batch_prompts)
+
+            # 写入
+            for qa, docs, resp, pt, ct, tt in zip(
+                batch_qas, batch_docs, responses, ptks, ctks, ttks
+            ):
+
+                target["question"].append(qa["query"])
+                target["contexts"].append([d for d in docs])
+                target["ground_truth"].append(qa["answer"])
+                target["answer"].append(resp)
+
+                token_stats["prompt_tokens"].append(int(pt))
+                token_stats["completion_tokens"].append(int(ct))
+                token_stats["total_tokens"].append(int(tt))
+
+            torch.cuda.empty_cache()
         
-        compressed_result = {
-            "tokens": compressed_tokens,
-            "answer":compressed_answer
+        final_output = {
+            "data": target,
+            "tokens": token_stats
         }
-        origin_result = {
-            "tokens": origin_tokens,
-            "answer":origin_answer
-        }
-        
-        # result = self.measure(origin_result, compressed_result)
-        result = origin_result if not self.use_compress else compressed_result
-        
-        with open(f"/root/works/rag_compress/results/{self.name}/{self.__get_compress()}_{self.dataname}.json", "w", encoding="utf-8") as f:
-            json.dump(result, f, indent=4)
-        print(f"结果已保存至./result/{self.name}/{self.__get_compress()}_{self.dataname}.json")
-        
+        root_path = str(os.getenv("ROOT_PATH"))
+        filepath = f"{root_path}/results/{self.name}/{self.__get_compress()}_{self.dataname}.json"
+        with open(filepath, "w", encoding="utf-8") as f:
+            json.dump(final_output, f, indent=4)
+        print(f"结果已保存至{filepath}")
         return

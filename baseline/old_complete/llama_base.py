@@ -88,9 +88,22 @@ index = VectorStoreIndex.from_documents(documents)
 # 对照组：Naive RAG
 # ==========================================
 
-# token_counter.reset_counts()
+token_counter.reset_counts()
 
-# naive_engine = index.as_query_engine(similarity_top_k=5)
+naive_engine = index.as_query_engine(similarity_top_k=5)
+result = naive_engine.retrieve("多智能体系统有什么用？")
+print(result)
+
+
+my_reranker = MyCustomReranker()
+experiment_engine = index.as_query_engine(
+    similarity_top_k=5,
+    node_postprocessors=[my_reranker]
+)
+result = experiment_engine.retrieve(QueryBundle("多智能体系统有什么用？"))
+print([doc.text for doc in result])
+
+exit(0)
 # response_naive = naive_engine.query("多智能体系统有什么用？")
 
 # print("Naive回答：", response_naive)
@@ -112,25 +125,25 @@ index = VectorStoreIndex.from_documents(documents)
 # 实验组：加入你的 Reranker
 # ==========================================
 
-token_counter.reset_counts()
+# token_counter.reset_counts()
 
-my_reranker = MyCustomReranker()
+# my_reranker = MyCustomReranker()
 
-experiment_engine = index.as_query_engine(
-    similarity_top_k=5,
-    node_postprocessors=[my_reranker]
-)
+# experiment_engine = index.as_query_engine(
+#     similarity_top_k=5,
+#     node_postprocessors=[my_reranker]
+# )
 
-response_experiment = experiment_engine.query("多智能体系统有什么用？")
+# response_experiment = experiment_engine.query("多智能体系统有什么用？")
 
-print("Experiment回答：", response_experiment)
-source_nodes = response_experiment.source_nodes
+# print("Experiment回答：", response_experiment)
+# source_nodes = response_experiment.source_nodes
 
-for i, node in enumerate(source_nodes):
-    print(f"\n--- Context {i} ---")
-    print(node.node.text)
-    print("score:", node.score)
-print("\nExperiment Token统计")
-print("Prompt tokens:", token_counter.prompt_llm_token_count)
-print("Completion tokens:", token_counter.completion_llm_token_count)
-print("Total tokens:", token_counter.total_llm_token_count)
+# for i, node in enumerate(source_nodes):
+#     print(f"\n--- Context {i} ---")
+#     print(node.node.text)
+#     print("score:", node.score)
+# print("\nExperiment Token统计")
+# print("Prompt tokens:", token_counter.prompt_llm_token_count)
+# print("Completion tokens:", token_counter.completion_llm_token_count)
+# print("Total tokens:", token_counter.total_llm_token_count)
