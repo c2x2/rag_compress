@@ -1,4 +1,4 @@
-from data_progress.base import QAItem
+from backend.data_progress.base import QAItem
 from typing import List
 
 class BaseRag:
@@ -17,3 +17,5 @@ class BaseRag:
     def compress(self, docs):
         raise NotImplementedError
 
+    def run_demo(self, contexts, query, use_compress):
+        raise NotImplementedError

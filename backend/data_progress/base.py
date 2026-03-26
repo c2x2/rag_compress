@@ -47,7 +47,7 @@ class TriviaqaDataload(database[QAItem]):
         raw_data = json.loads(content)
         data_results:List[QAItem] = []
         #TODO fix numbers
-        for qa in tqdm(raw_data['Data'][:15], desc="Load datasets"):
+        for qa in tqdm(raw_data['Data'], desc="Load datasets"):
             envidences_path = []
             item: QAItem = {
                 "answer":qa["Answer"]["Value"],
@@ -61,7 +61,8 @@ class TriviaqaDataload(database[QAItem]):
                 envidences_path=[source["Filename"] for source in qa["SearchResults"]]
             
             for file_path in envidences_path:
-                with open(f"{os.getenv('ROOT_PATH')}/datasets/triviaqa/evidence/{self.data_name}/{file_path}","r", encoding='utf-8') as f:
+                # with open(f"{os.getenv('ROOT_PATH')}/datasets/triviaqa/evidence/{self.data_name}/{file_path}","r", encoding='utf-8') as f:
+                with open(f"/home/melonmelon/agent/rag_compress/datasets/triviaqa/evidence/{self.data_name}/{file_path}","r", encoding='utf-8') as f:
                     content = f.read()
                 item["contents"].append(content)
 

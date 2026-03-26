@@ -1,0 +1,16 @@
+# 环境变量
+.env
+
+# 结果文件
+results/
+
+# 数据文件
+data/
+# Python 缓存
+*/__pycache__/
+*.pyc
+# lightrag存储
+**/rag_storage/
+# 其他常见垃圾
+*.log
+.DS_Store
