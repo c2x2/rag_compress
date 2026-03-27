@@ -271,7 +271,7 @@ class LangchainRag(BaseRag):
             "tokens": token_stats
         }
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        filepath = f"{self.root_path}/backend/results/{self.name}/{self.__get_compress()}_{self.dataname}_{timestamp}.json"
+        filepath = f"{self.root_path}/backend/results/rag_results/{self.name}/{self.__get_compress()}_{self.dataname}_{timestamp}.json"
         with open(filepath, "w", encoding="utf-8") as f:
             json.dump(final_output, f, indent=4)
         print(f"结果已保存至{filepath}")

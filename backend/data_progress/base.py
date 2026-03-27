@@ -47,7 +47,7 @@ class TriviaqaDataload(database[QAItem]):
         raw_data = json.loads(content)
         data_results:List[QAItem] = []
         #TODO fix numbers
-        for qa in tqdm(raw_data['Data'], desc="Load datasets"):
+        for qa in tqdm(raw_data['Data'][:10000], desc="Load datasets"):
             envidences_path = []
             item: QAItem = {
                 "answer":qa["Answer"]["Value"],
