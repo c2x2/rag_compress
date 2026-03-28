@@ -82,9 +82,8 @@ class LocalVLLM(DeepEvalBaseLLM):
         return LLM(
             model=self.model_path,
             trust_remote_code=True,
-            max_model_len=10000,
-            gpu_memory_utilization=0.6,
-            swap_space=0.5
+            max_model_len=4096,
+            gpu_memory_utilization=0.9
         )
 
     # ✅ 核心生成逻辑
@@ -138,11 +137,11 @@ class LocalVLLM(DeepEvalBaseLLM):
 
 class EvalEngine:
     def __init__(self, rag_name) -> None:
-        model_path = str(os.getenv("LLM_PATH"))    
+        model_path = str(os.getenv("LLM_PATH_2"))    
         self.model = LocalVLLM(model_path=model_path)
         self.metrics = {
             # "answer_relevancy":AnswerRelevancyMetric(model=self.model, strict_mode=True),
-            "faithfulness":FaithfulnessMetric(model=self.model, strict_mode=True),
+            # "faithfulness":FaithfulnessMetric(model=self.model, strict_mode=True),
             # "contextual_recall":ContextualRecallMetric(model=self.model, strict_mode=True)
         }
         self.root_path = str(os.getenv("ROOT_PATH"))
@@ -161,7 +160,7 @@ class EvalEngine:
                     input=self.data['question'][i],
                     actual_output=self.data['answer'][i],
                     expected_output=self.data['ground_truth'][i],
-                    retrieval_context=[context[:10000] for context in self.data['contexts'][i]]
+                    retrieval_context=[context[:4096] for context in self.data['contexts'][i]]
                 )
             )
     
@@ -171,17 +170,19 @@ class EvalEngine:
             metrics=list(self.metrics.values())
         )
 
-        evaluate_results = []
+        evaluate_results = {}
         for res in result.test_results:
-            res_metric=[]
+            res_metric={}
             if res.metrics_data:
                 for metric in res.metrics_data:
                     res_metric[metric.name] = metric.score
             evaluate_results[res.input] = res_metric
-        
-        filepath = f"{self.root_path}/backend/results/{self.name}/evaluate_results/{self.resultname}_evaluate_result.json"
+        from datetime import datetime
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
-        with open(filepath, 'r', encoding='utf-8') as f:
+        filepath = f"{self.root_path}/backend/results/{self.name}/evaluate_results/{self.resultname}_{timestamp}_evaluate_result.json"
+
+        with open(filepath, 'w', encoding='utf-8') as f:
             json.dump(evaluate_results, f)
         
         print(f"结果已经保存至{filepath}")
