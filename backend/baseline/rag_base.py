@@ -14,7 +14,7 @@ class BaseRag:
     def measure(self, origin, compressed):
         raise NotImplementedError
     
-    def compress(self, docs):
+    def compress(self, docs, query):
         raise NotImplementedError
 
     def run_demo(self, contexts, query, use_compress):

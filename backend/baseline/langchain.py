@@ -21,6 +21,7 @@ import numpy as np
 import torch
 from tqdm import tqdm
 from datetime import datetime
+from backend.baseline.compressor import QueryAwareIterativeLLMLingua
 load_dotenv()
 os.environ["RAGAS_DO_NOT_TRACK"] = "true" # 禁用匿名追踪，减少网络开销
 
@@ -44,6 +45,7 @@ class LangchainRag(BaseRag):
         self.root_path = str(os.getenv("ROOT_PATH"))
 
         #定义模型
+        self.compressor = QueryAwareIterativeLLMLingua(str(os.getenv("COM_PATH")))
         model_path = str(os.getenv("LLM_PATH"))
         if not tokenizer:
             tokenizer = AutoTokenizer.from_pretrained(model_path, padding_side='left')
@@ -61,19 +63,7 @@ class LangchainRag(BaseRag):
         )        
         self.model = model
         #评测用模型
-        # self.evalute_llm = HuggingFacePipeline(
-        #     pipeline=pipeline(
-        #         task="text-generation", 
-        #         model=model, 
-        #         tokenizer=tokenizer, 
-        #         max_new_tokens=self.max_new_tokens, 
-        #         batch_size=self.batch_size, 
-        #         max_length=None, 
-        #         return_full_text=False,
-        #         temperature=0,
-        #         do_sample=False
-        #     )
-        # )
+
         self.embedding = HuggingFaceEmbeddings(
             model_name=str(os.getenv("EMBEDDING_PATH")), 
             model_kwargs={"device": "cuda"}, 
@@ -83,6 +73,7 @@ class LangchainRag(BaseRag):
             }
         )
         self.use_compress = use_compress
+        self.device = 'cuda'
 
     def __get_compress(self) -> str:
         return "use_compress" if self.use_compress else "no_compress"
@@ -92,48 +83,7 @@ class LangchainRag(BaseRag):
         self.dataname = dataname
 
     def measure(self, origin=None, compressed=None):
-        print("============开始评测结果============")
-        filepath = f"{self.root_path}/results/{self.name}/{self.__get_compress()}_{self.dataname}.json"
-        with open(filepath, 'r', encoding='utf-8') as f:
-            results = json.load(f)
-
-        MAX_TOKENS=self.max_context_len
-        def truncate_fields(example):
-            # 截断 context (ragas 的 context 通常是 list)
-            if "contexts" in example and example["contexts"]:
-                # 简单的字符串截断（粗略估计：1个 token 约等于 3-4 个字符，或者直接按字符数硬截）
-                # 稳妥起见，如果单个 context 极长，进行截断
-                example["contexts"] = [c[:MAX_TOKENS * 2] for c in example["contexts"]]
-            
-            # 截断 answer 和 user_input
-            if "answer" in example and example["answer"]:
-                example["answer"] = example["answer"][:MAX_TOKENS * 2]
-            if "user_input" in example and example["user_input"]:
-                example["user_input"] = example["user_input"][:MAX_TOKENS * 2]
-            return example
-        #计算answer质量
-        raw_dataset = Dataset.from_dict(results['data'])
-        # 使用 map 进行并行截断处理
-        dataset = raw_dataset.map(truncate_fields)
-
-        answer_quality = evaluate(
-            dataset,
-            metrics=[
-                faithfulness,
-                answer_relevancy,
-                answer_correctness,
-                context_recall
-            ],
-            llm=self.evalute_llm,
-            embeddings=self.embedding,
-            batch_size=2
-        ).to_pandas().to_dict()
-
-        target_path = f"{self.root_path}/results/{self.name}/{self.__get_compress()}_{self.dataname}_quality.json"
-        with open(target_path, 'w', encoding='utf-8') as f:
-            json.dump(answer_quality, f, indent=4)
-
-        print(f"评测结果保存至{target_path}")
+        return
 
         #计算压缩后和压缩前比较tokens降低程度
         # origin_tokens = np.array(origin["tokens"]["total_tokens"])
@@ -150,14 +100,14 @@ class LangchainRag(BaseRag):
         #     "mean_dataset":float(mean_dataset_radio)
         # }
 
+    def compress(self, docs:List[Document], query:str) -> List[Document]:
+        context = "".join(doc.page_content for doc in docs)
 
-    def compress(self, docs:List[Document]) -> List[Document]:
-        compressed_docs = []
-        for doc in docs:
-            compressed_docs.append(Document(doc.page_content[:50]))
+        compressed_texts = [self.compressor.compress_context(query, context, keep_ratio=0.5)]
         
-        return compressed_docs
-    
+        return [Document(page_content=text) for text in compressed_texts]
+        
+        
     def build_prompt(self, context, query):
         return f"""
                 Given these texts:
@@ -235,7 +185,7 @@ class LangchainRag(BaseRag):
                 docs = retriever.invoke(qa["query"])
 
                 if self.use_compress:
-                    docs = self.compress(docs)
+                    docs = self.compress(docs, qa["query"])
 
                 # 🔥 控制context长度
                 context_text = "\n".join([d.page_content for d in docs])

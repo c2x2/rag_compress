@@ -58,22 +58,29 @@
 #     main()
 
 # Load model directly
-from transformers import AutoTokenizer, AutoModelForCausalLM
-import os
-os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
-model_path="/home/melonmelon/.cache/huggingface/hub/models--microsoft--Phi-3-mini-4k-instruct/snapshots/f39ac1d28e925b323eae81227eaba4464caced4e"
-tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
-model = AutoModelForCausalLM.from_pretrained(model_path, trust_remote_code=True).to("cuda")
-messages = [
-    {"role": "user", "content": "Who are you?"},
-]
-inputs = tokenizer.apply_chat_template(
-	messages,
-	add_generation_prompt=True,
-	tokenize=True,
-	return_dict=True,
-	return_tensors="pt",
-).to(model.device)
+# from transformers import AutoTokenizer, AutoModelForCausalLM
+# import os
+# os.environ['HF_ENDPOINT'] = 'https://hf-mirror.com'
+# model_path="/home/melonmelon/.cache/huggingface/hub/models--microsoft--Phi-3-mini-4k-instruct/snapshots/f39ac1d28e925b323eae81227eaba4464caced4e"
+# tokenizer = AutoTokenizer.from_pretrained(model_path, trust_remote_code=True)
+# model = AutoModelForCausalLM.from_pretrained(model_path, trust_remote_code=True).to("cuda")
+# messages = [
+#     {"role": "user", "content": "Who are you?"},
+# ]
+# inputs = tokenizer.apply_chat_template(
+# 	messages,
+# 	add_generation_prompt=True,
+# 	tokenize=True,
+# 	return_dict=True,
+# 	return_tensors="pt",
+# ).to(model.device)
 
-outputs = model.generate(**inputs, max_new_tokens=40)
-print(tokenizer.decode(outputs[0][inputs["input_ids"].shape[-1]:]))
+# outputs = model.generate(**inputs, max_new_tokens=40)
+# print(tokenizer.decode(outputs[0][inputs["input_ids"].shape[-1]:]))
+
+# Load model directly
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+tokenizer = AutoTokenizer.from_pretrained("openai-community/gpt2")
+model = AutoModelForCausalLM.from_pretrained("openai-community/gpt2")
+print(model)

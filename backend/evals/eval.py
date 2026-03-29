@@ -98,7 +98,7 @@ class LocalVLLM(DeepEvalBaseLLM):
         # ✅ 2. 控制生成行为（重点）
         self.sampling_params = SamplingParams(
             temperature=0.0,
-            max_tokens=4096,                  # ❗别再 10000 了，会炸
+            max_tokens=4096*2,                  # ❗别再 10000 了，会炸
             repetition_penalty=1.2,           # ✅ 防复读
             guided_decoding=guided_decoding
         )
@@ -153,7 +153,7 @@ class EvalEngine:
             self.data = json.load(f)['data']
         
         self.test_cases = []
-        query_counts = len(self.data['question'])//2            
+        query_counts = len(self.data['question'])        
         for i in range(query_counts):
             self.test_cases.append(
                 LLMTestCase(

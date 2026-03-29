@@ -19,7 +19,7 @@ class QueryAwareIterativeLLMLingua:
         if self.tokenizer.pad_token is None:
             self.tokenizer.pad_token = self.tokenizer.eos_token
 
-    def compress_context(self, query: str, context: str, keep_ratio: float = 0.3, segment_size: int = 100):
+    def compress_context(self, query: str, context: str, keep_ratio: float = 0.5, segment_size: int = 100):
         """
         使用 ITPC 算法，结合 Query 对 Context 进行迭代压缩。
         
@@ -85,10 +85,32 @@ class QueryAwareIterativeLLMLingua:
             kept_context_ids.extend(kept_tokens)
             
         # 5. 解码最终保留的全部 Token
-        final_kept_tensor = torch.tensor(kept_context_ids, dtype=torch.long, device=self.device).unsqueeze(0)
-        compressed_text = self.tokenizer.decode(final_kept_tensor[0], skip_special_tokens=True)
-        
+        # final_kept_tensor = torch.tensor(kept_context_ids, dtype=torch.long, device=self.device).unsqueeze(0)
+
+        # compressed_text = self.tokenizer.decode(final_kept_tensor[0], skip_special_tokens=True)
+        print(kept_context_ids)
+        compressed_text = self.safe_decode_long(
+            kept_context_ids,
+            max_len=1024
+        )
         return compressed_text
+
+    def safe_decode_long(self, token_ids, max_len=1024):
+        chunks = []
+        
+        for i in range(0, len(token_ids), max_len):
+            chunk_ids = token_ids[i:i+max_len]
+            
+            text = self.tokenizer.decode(
+                chunk_ids,
+                skip_special_tokens=True,
+                clean_up_tokenization_spaces=True
+            )
+            
+            chunks.append(text.strip())
+        
+        # 用换行而不是空格拼（更自然）
+        return "\n".join(chunks)
 
 # ==========================================
 # 测试 Demo
